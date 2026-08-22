@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Decision Tournament</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../main.html" style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);" onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';" onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </a>
+
+
+    <div class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div>
+                <span class="eyebrow">DECISION TOOL</span>
+                <h1>Decision Tournament</h1>
+                <p>Find the best choice through a knockout tournament.</p>
+            </div>
+
+            <button id="newTournamentBtn" class="secondary-btn">
+                New Tournament
+            </button>
+        </header>
+
+
+        <!-- SETUP -->
+        <section id="setupScreen" class="screen">
+
+            <div class="setup-card">
+
+                <div class="card-header">
+                    <div>
+                        <h2>Participants</h2>
+                        <p>Add the options you want to compare.</p>
+                    </div>
+
+                    <span id="participantCount" class="count-badge">
+                        0
+                    </span>
+                </div>
+
+
+                <div class="add-participant">
+                    <input type="text" id="participantInput" placeholder="Enter participant name..." maxlength="50">
+
+                    <button id="addParticipantBtn" class="primary-btn">
+                        Add
+                    </button>
+                </div>
+
+
+                <div id="participantsList" class="participants-list">
+                    <div class="empty-state">
+                        <div class="empty-icon">+</div>
+                        <p>No participants yet</p>
+                        <span>Add at least 2 participants to start.</span>
+                    </div>
+                </div>
+
+
+                <div class="setup-footer">
+
+                    <div class="minimum-info">
+                        <span>Minimum</span>
+                        <strong>2 participants</strong>
+                    </div>
+
+                    <button id="startTournamentBtn" class="primary-btn large" disabled>
+                        Start Tournament
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TOURNAMENT -->
+        <section id="tournamentScreen" class="screen hidden">
+
+            <div class="tournament-top">
+
+                <div>
+                    <span class="eyebrow">TOURNAMENT</span>
+
+                    <h2 id="roundTitle">
+                        Round 1
+                    </h2>
+
+                    <p id="roundSubtitle">
+                        Choose your favorite.
+                    </p>
+                </div>
+
+                <div class="progress-box">
+                    <span>Match</span>
+                    <strong>
+                        <span id="currentMatch">1</span>
+                        /
+                        <span id="totalMatches">1</span>
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- BRACKET -->
+            <div id="bracket" class="bracket"></div>
+
+
+            <!-- CURRENT MATCH -->
+            <div id="matchArea" class="match-area">
+
+                <div class="match-label">
+                    CHOOSE THE WINNER
+                </div>
+
+                <div class="match">
+
+                    <button id="optionA" class="option-card">
+                        <span class="option-number">A</span>
+                        <span id="optionAText">Option A</span>
+                    </button>
+
+
+                    <div class="vs">
+                        <span>VS</span>
+                    </div>
+
+
+                    <button id="optionB" class="option-card">
+                        <span class="option-number">B</span>
+                        <span id="optionBText">Option B</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- WINNER -->
+            <div id="winnerArea" class="winner-area hidden">
+
+                <div class="winner-glow"></div>
+
+                <div class="winner-trophy">
+                    🏆
+                </div>
+
+                <span class="eyebrow">TOURNAMENT WINNER</span>
+
+                <h2 id="winnerName">
+                    Winner
+                </h2>
+
+                <p>
+                    The ultimate decision has been made.
+                </p>
+
+                <button id="viewStatsBtn" class="primary-btn large">
+                    View Statistics
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section id="statsScreen" class="screen hidden">
+
+            <div class="stats-header">
+
+                <div>
+                    <span class="eyebrow">RESULTS</span>
+
+                    <h2>Tournament Statistics</h2>
+
+                    <p>
+                        Here's how the tournament played out.
+                    </p>
+                </div>
+
+                <button id="backToTournamentBtn" class="secondary-btn">
+                    Back
+                </button>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Participants</span>
+                    <strong id="statParticipants">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Matches</span>
+                    <strong id="statMatches">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Rounds</span>
+                    <strong id="statRounds">0</strong>
+                </div>
+
+                <div class="stat-card winner-stat">
+                    <span>Winner</span>
+                    <strong id="statWinner">-</strong>
+                </div>
+
+            </div>
+
+
+            <div class="results-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Match Results</h3>
+                        <p>Every decision made during the tournament.</p>
+                    </div>
+                </div>
+
+                <div id="resultsList" class="results-list"></div>
+
+            </div>
+
+
+            <button id="restartBtn" class="primary-btn large restart-btn">
+                Start New Tournament
+            </button>
+
+        </section>
+
+
+        <!-- HISTORY -->
+        <section class="history-section">
+
+            <div class="history-header">
+
+                <div>
+                    <span class="eyebrow">HISTORY</span>
+                    <h2>Previous Tournaments</h2>
+                </div>
+
+                <button id="clearHistoryBtn" class="text-btn">
+                    Clear History
+                </button>
+
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
