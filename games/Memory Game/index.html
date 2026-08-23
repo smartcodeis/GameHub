@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Back to Home Button -->
+  <a href="../../index.html"
+    style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+    onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+    onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+  </a>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">BRAIN TRAINING</span>
+        <h1>Memory Game</h1>
+      </div>
+      <button id="restartBtn" class="restart-btn">↻ Restart</button>
+    </header>
+
+    <section class="level-row">
+      <button class="level active" data-level="easy">
+        <span>Easy</span><small>4 × 4</small>
+      </button>
+      <button class="level" data-level="medium">
+        <span>Medium</span><small>4 × 5</small>
+      </button>
+      <button class="level" data-level="hard">
+        <span>Hard</span><small>6 × 6</small>
+      </button>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>TIME</span><strong id="timer">00:00</strong></div>
+      <div class="stat"><span>MOVES</span><strong id="moves">0</strong></div>
+      <div class="stat"><span>BEST</span><strong id="best">—</strong></div>
+    </section>
+
+    <section id="gameBoard" class="game-board"></section>
+
+    <div id="message" class="message">Find all matching pairs.</div>
+  </main>
+
+  <div id="winModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="trophy">🏆</div>
+      <h2>Perfect Memory!</h2>
+      <p id="winText"></p>
+      <button id="playAgainBtn" class="primary-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
