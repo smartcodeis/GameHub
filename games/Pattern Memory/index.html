@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Memory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="game">
+
+        <header class="header">
+            <div>
+                <h1>Pattern Memory</h1>
+                <p>Watch the pattern. Repeat it.</p>
+            </div>
+
+            <div class="high-score">
+                <span>HIGH SCORE</span>
+                <strong id="highScore">0</strong>
+            </div>
+        </header>
+
+        <section class="stats">
+            <div class="stat">
+                <span>LEVEL</span>
+                <strong id="level">1</strong>
+            </div>
+
+            <div class="stat">
+                <span>PATTERN</span>
+                <strong id="patternLength">3</strong>
+            </div>
+
+            <div class="stat">
+                <span>STATUS</span>
+                <strong id="status">READY</strong>
+            </div>
+        </section>
+
+        <section class="game-board" id="gameBoard">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+
+            <button class="cell" data-index="8"></button>
+            <button class="cell" data-index="9"></button>
+            <button class="cell" data-index="10"></button>
+            <button class="cell" data-index="11"></button>
+
+            <button class="cell" data-index="12"></button>
+            <button class="cell" data-index="13"></button>
+            <button class="cell" data-index="14"></button>
+            <button class="cell" data-index="15"></button>
+        </section>
+
+        <section class="controls">
+            <p id="message">Press Start to begin</p>
+
+            <button id="startBtn" class="start-btn">
+                START GAME
+            </button>
+        </section>
+
+        <div class="overlay hidden" id="gameOver">
+            <div class="game-over-card">
+                <div class="game-over-icon">✕</div>
+
+                <h2>Game Over</h2>
+                <p>You broke the pattern.</p>
+
+                <div class="results">
+                    <div>
+                        <span>LEVEL</span>
+                        <strong id="finalLevel">0</strong>
+                    </div>
+
+                    <div>
+                        <span>HIGH SCORE</span>
+                        <strong id="finalHighScore">0</strong>
+                    </div>
+                </div>
+
+                <button id="restartBtn" class="start-btn">
+                    PLAY AGAIN
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
