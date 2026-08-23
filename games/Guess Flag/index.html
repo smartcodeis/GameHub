@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guess the Flag</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <div class="game">
+
+        <header class="header">
+
+            <div>
+                <h1>Guess the country from flag</h1>
+                <p>Can you recognize the flag?</p>
+            </div>
+
+            <div class="score-box">
+                <span>Score</span>
+                <strong id="score">0</strong>
+            </div>
+
+        </header>
+
+
+        <div class="progress-area">
+
+            <div class="progress-info">
+                <span>
+                    Question
+                    <b id="currentQuestion">1</b>
+                    of
+                    <b id="totalQuestions">10</b>
+                </span>
+
+                <span id="percentage">0%</span>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+        </div>
+
+
+        <!-- GAME -->
+
+        <main id="gameArea">
+
+            <div class="logo-card">
+
+                <div class="logo-container">
+
+                    <img id="carLogo" src="" alt="Car Logo">
+
+                </div>
+
+                <h2>Which Flag is this?</h2>
+
+            </div>
+
+
+            <!-- Answer Input -->
+
+            <div class="answer-area">
+
+                <input type="text" id="answerInput" placeholder="Type the Country Name..." autocomplete="off">
+
+                <button id="checkBtn">
+                    Check Answer
+                </button>
+
+            </div>
+
+
+            <!-- Correct Answer -->
+
+            <div id="correctAnswer" class="correct-answer hidden">
+
+                <span>The correct answer is:</span>
+
+                <strong id="answerText"></strong>
+
+            </div>
+
+
+            <!-- User decides -->
+
+            <div id="decisionArea" class="decision-area hidden">
+
+                <p>Did you get it right?</p>
+
+                <div class="decision-buttons">
+
+                    <button id="rightBtn" class="right-btn">
+                        ✅ I Got It Right
+                    </button>
+
+                    <button id="wrongBtn" class="wrong-btn">
+                        ❌ I Got It Wrong
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Next -->
+
+            <button id="nextBtn" class="next-btn">
+                Next →
+            </button>
+
+        </main>
+
+        <!-- HISTORY -->
+
+        <div id="historyScreen" class="history-screen">
+
+            <div class="history-header">
+
+                <h2>📜 Game History</h2>
+
+                <button id="resetBtn" class="reset-btn">
+                    🗑️ Reset
+                </button>
+
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+        </div>
+
+
+        <!-- END -->
+
+        <div id="endScreen" class="end-screen hidden">
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <h2>Game Complete!</h2>
+
+            <p>Your Score</p>
+
+            <div class="final-score">
+
+                <span id="finalScore">0</span>
+
+                <small>
+                    /
+                    <span id="finalTotal">10</span>
+                </small>
+
+            </div>
+
+            <p id="message"></p>
+
+            <button id="playAgain">
+                🔄 Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
