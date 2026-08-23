@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Together</title>
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <div class="app">
+
+        <header class="header">
+            <div>
+                <h1>🎨 Draw Together</h1>
+                <p>Create your own drawing</p>
+            </div>
+
+            <div class="header-actions">
+                <button id="galleryBtn" class="gallery-header-btn">
+                    🖼️ Gallery
+                </button>
+
+                <button id="clearBtn" class="danger-btn">
+                    🗑️ Clear
+                </button>
+            </div>
+        </header>
+
+        <main class="workspace">
+
+            <aside class="toolbar">
+
+                <div class="tool-group">
+                    <h3>Tools</h3>
+
+                    <button class="tool active" data-tool="pencil">
+                        ✏️
+                        <span>Pencil</span>
+                    </button>
+
+                    <button class="tool" data-tool="brush">
+                        🖌️
+                        <span>Brush</span>
+                    </button>
+
+                    <button class="tool" data-tool="eraser">
+                        🧽
+                        <span>Eraser</span>
+                    </button>
+
+                    <button class="tool" data-tool="fill">
+                        🪣
+                        <span>Fill</span>
+                    </button>
+                </div>
+
+                <div class="tool-group">
+                    <h3>Color</h3>
+
+                    <div class="color-section">
+
+                        <input type="color" id="colorPicker" value="#111827">
+
+                        <div class="color-info">
+                            <span>Color</span>
+                            <strong id="colorValue">#111827</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="preset-colors">
+
+                        <button class="color black" data-color="#111827"></button>
+                        <button class="color red" data-color="#ef4444"></button>
+                        <button class="color orange" data-color="#f97316"></button>
+                        <button class="color yellow" data-color="#eab308"></button>
+                        <button class="color green" data-color="#22c55e"></button>
+                        <button class="color blue" data-color="#3b82f6"></button>
+                        <button class="color purple" data-color="#8b5cf6"></button>
+                        <button class="color pink" data-color="#ec4899"></button>
+                        <button class="color white" data-color="#ffffff"></button>
+
+                    </div>
+                </div>
+
+                <div class="tool-group">
+                    <h3>Brush Size</h3>
+
+                    <div class="size-value">
+                        <span>Size</span>
+                        <strong id="sizeValue">5px</strong>
+                    </div>
+
+                    <input type="range" id="sizeSlider" min="1" max="50" value="5">
+
+                    <div class="size-preview">
+                        <div id="sizePreview"></div>
+                    </div>
+                </div>
+
+                <div class="tool-group actions">
+
+                    <h3>Actions</h3>
+
+                    <div class="action-row">
+
+                        <button id="undoBtn" title="Undo">
+                            ↩️
+                        </button>
+
+                        <button id="redoBtn" title="Redo">
+                            ↪️
+                        </button>
+
+                    </div>
+
+                    <button id="saveBtn" class="save-btn">
+                        💾 Save to Gallery
+                    </button>
+
+                    <button id="exportBtn" class="export-btn">
+                        🖼️ Export Image
+                    </button>
+
+                </div>
+
+            </aside>
+
+            <section class="canvas-area">
+
+                <div class="canvas-wrapper">
+                    <canvas id="drawingCanvas"></canvas>
+                </div>
+
+                <div class="canvas-footer">
+
+                    <span id="status">
+                        ✏️ Pencil selected
+                    </span>
+
+                    <span>
+                        Draw something amazing!
+                    </span>
+
+                </div>
+
+                <!-- Mobile quick-save button -->
+                <button id="canvasSaveFloat" class="canvas-save-float">
+                    💾 Save to Gallery
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-modal-content">
+
+            <div class="gallery-modal-header">
+                <h2>🖼️ My Drawings</h2>
+                <button id="galleryClose" class="gallery-close-btn">✕</button>
+            </div>
+
+            <div id="galleryEmpty" class="gallery-empty">
+                <div class="gallery-empty-icon">🎨</div>
+                <p>No saved drawings yet</p>
+                <small>Save a drawing to see it here</small>
+            </div>
+
+            <div id="galleryGrid" class="gallery-grid"></div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
