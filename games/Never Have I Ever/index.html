@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Have I Ever</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .game {
+            width: min(92vw, 650px);
+            text-align: center;
+        }
+
+        .title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            min-height: 300px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 45px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            margin-bottom: 25px;
+        }
+
+        .statement {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 550px;
+        }
+
+        .counter {
+            margin-top: 25px;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        button {
+            border: none;
+            padding: 15px 28px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .next-btn {
+            background: white;
+            color: #5d4bb7;
+            min-width: 180px;
+        }
+
+        .reset-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .animation {
+            animation: pop 0.35s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(15px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 35px 20px;
+                min-height: 280px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="game">
+
+        <h1 class="title">Never Have I Ever</h1>
+        <p class="subtitle">Let's see what you've done 👀</p>
+
+        <section class="card" id="card">
+
+            <div class="label">Never Have I Ever...</div>
+
+            <div class="statement" id="statement">
+                Press the button to start!
+            </div>
+
+            <div class="counter" id="counter"></div>
+
+        </section>
+
+        <div class="buttons">
+            <button class="next-btn" id="nextBtn">
+                🎲 Random Statement
+            </button>
+
+            <button class="reset-btn" id="resetBtn">
+                ↻ Reset
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        const statements = [
+            // English
+            "Never have I ever lied about my age.",
+            "Never have I ever stayed awake all night.",
+            "Never have I ever forgotten someone's birthday.",
+            "Never have I ever sent a message to the wrong person.",
+            "Never have I ever laughed at the wrong moment.",
+            "Never have I ever pretended to understand something.",
+            "Never have I ever fallen asleep during a movie.",
+            "Never have I ever eaten food after dropping it.",
+            "Never have I ever stalked someone on social media.",
+            "Never have I ever forgotten someone's name.",
+            "Never have I ever blamed someone else for something I did.",
+            "Never have I ever sung in the shower.",
+            "Never have I ever talked to myself.",
+            "Never have I ever danced when nobody was watching.",
+            "Never have I ever gotten lost in a place I knew.",
+            "Never have I ever deleted a message because I regretted sending it.",
+            "Never have I ever pretended to be sick to avoid something.",
+            "Never have I ever laughed so hard that I cried.",
+            "Never have I ever taken a screenshot of a conversation.",
+            "Never have I ever forgotten where I put my phone.",
+            "Never have I ever watched an entire series in one day.",
+            "Never have I ever eaten someone else's food without asking.",
+            "Never have I ever lied to get out of plans.",
+            "Never have I ever waved at someone who wasn't waving at me.",
+            "Never have I ever tripped in public.",
+            "Never have I ever practiced a conversation in my head.",
+            "Never have I ever googled myself.",
+            "Never have I ever pretended to be busy to avoid talking to someone.",
+            "Never have I ever stayed up late just using my phone.",
+            "Never have I ever forgotten why I walked into a room.",
+            "Never have I ever laughed at my own joke.",
+            "Never have I ever worn mismatched socks outside.",
+            "Never have I ever called someone by the wrong name.",
+            "Never have I ever sent a voice message and immediately regretted it.",
+            "Never have I ever ignored a message on purpose.",
+            "Never have I ever refreshed a page waiting for something.",
+            "Never have I ever checked someone's profile more than once.",
+            "Never have I ever made an excuse to leave a party early.",
+            "Never have I ever eaten breakfast for dinner.",
+            "Never have I ever pretended to be asleep when someone entered the room.",
+            "Never have I ever forgotten my password.",
+            "Never have I ever taken a photo of my food before eating it.",
+            "Never have I ever laughed during a serious situation.",
+            "Never have I ever accidentally liked an old post.",
+            "Never have I ever watched spoilers before watching the movie.",
+            "Never have I ever spent money on something I didn't need.",
+            "Never have I ever made a fake excuse to cancel plans.",
+            "Never have I ever talked to an animal like it could understand me.",
+            "Never have I ever worn the same outfit two days in a row.",
+            "Never have I ever forgotten someone's face but remembered their name.",
+            "Never have I ever pretended to know a song and just mumbled the lyrics.",
+            "Never have I ever danced in an elevator.",
+            "Never have I ever taken a selfie and deleted it immediately.",
+            "Never have I ever opened the fridge without knowing what I wanted.",
+            "Never have I ever laughed while reading old messages.",
+            "Never have I ever forgotten something important because I was on my phone.",
+            "Never have I ever stayed in bed all day.",
+            "Never have I ever ordered something just because it looked good in a picture.",
+            "Never have I ever pretended not to see someone I knew.",
+            "Never have I ever rehearsed what I was going to say before calling someone.",
+            "Never have I ever used someone else's charger without asking.",
+            "Never have I ever fallen asleep while texting.",
+            "Never have I ever watched the same movie more than five times.",
+            "Never have I ever made a playlist for a very specific mood.",
+            "Never have I ever forgotten someone's name immediately after being introduced.",
+            "Never have I ever taken the wrong bus or train.",
+            "Never have I ever eaten dessert before dinner.",
+            "Never have I ever spent an entire day doing absolutely nothing.",
+            "Never have I ever pretended to be confident when I was actually nervous.",
+            "Never have I ever checked my phone even though I knew there were no notifications.",
+            "Never have I ever made a typo that completely changed the meaning of a message.",
+            "Never have I ever laughed because everyone else was laughing.",
+            "Never have I ever forgotten what I was saying in the middle of a sentence.",
+            "Never have I ever walked into a room and immediately forgotten why.",
+            "Never have I ever taken a screenshot just to send it to someone else.",
+            "Never have I ever secretly listened to someone else's conversation.",
+            "Never have I ever watched a tutorial and still had no idea what I was doing.",
+            "Never have I ever bought something just because it was on sale.",
+            "Never have I ever spent too long choosing what to watch.",
+            "Never have I ever pretended to be interested in something just to be polite.",
+            "Never have I ever forgotten to reply to someone for several days.",
+            "Never have I ever made plans and then hoped they would get canceled.",
+            "Never have I ever searched for my phone while holding it.",
+            "Never have I ever used Google to answer a question I was too embarrassed to ask.",
+            "Never have I ever eaten an entire bag of snacks by myself.",
+            "Never have I ever stayed online just to see if someone would message me.",
+            "Never have I ever deleted a photo because I didn't like how I looked.",
+            "Never have I ever laughed at something I shouldn't have laughed at.",
+            "Never have I ever forgotten an appointment.",
+            "Never have I ever pretended to be busy while doing absolutely nothing.",
+            "Never have I ever watched a movie mainly because of an actor.",
+            "Never have I ever changed my outfit multiple times before going out.",
+            "Never have I ever gotten excited about plans and then not wanted to go.",
+            "Never have I ever checked the weather and ignored it anyway.",
+            "Never have I ever accidentally replied to the wrong chat.",
+            "Never have I ever stayed awake thinking about an embarrassing moment.",
+            "Never have I ever made a decision and immediately questioned it.",
+
+            // Arabic
+            "عمري ما كدبت عشان أخرج من مشكلة.",
+            "عمري ما ضحكت في وقت مينفعش فيه الضحك.",
+            "عمري ما نسيت عيد ميلاد حد قريب مني.",
+            "عمري ما بعت رسالة لشخص غلط.",
+            "عمري ما مثلت إني فاهم حاجة وأنا مش فاهم.",
+            "عمري ما نمت وأنا بتفرج على فيلم.",
+            "عمري ما أكلت أكل وقع على الأرض.",
+            "عمري ما دخلت أشوف بروفايل حد أكتر من مرة.",
+            "عمري ما نسيت اسم شخص بعد ما اتعرفت عليه مباشرة.",
+            "عمري ما عملت نفسي مشغول عشان أتجنب حد.",
+            "عمري ما كلمت نفسي بصوت عالي.",
+            "عمري ما رقصت لوحدي وأنا متأكد إن محدش شايفني.",
+            "عمري ما اتوهت في مكان المفروض إني عارفه.",
+            "عمري ما مسحت رسالة بعد ما بعتها عشان ندمت.",
+            "عمري ما عملت نفسي تعبان عشان مروحش مكان.",
+            "عمري ما ضحكت لحد ما دمعت.",
+            "عمري ما صورت شاشة لمحادثة وبعتها لحد تاني.",
+            "عمري ما دورت على موبايلي وهو في إيدي.",
+            "عمري ما خلصت مسلسل كامل في يوم واحد.",
+            "عمري ما أكلت أكل حد من غير ما أستأذن.",
+            "عمري ما كدبت عشان أهرب من خروجة.",
+            "عمري ما سلمت على حد عشان افتكرته بيسلم عليا.",
+            "عمري ما وقعت قدام ناس كتير.",
+            "عمري ما حضرت حوار كامل في دماغي قبل ما يحصل.",
+            "عمري ما دورت على اسمي على جوجل.",
+            "عمري ما عملت نفسي مش شايف حد أعرفه.",
+            "عمري ما سهرت لحد الصبح من غير سبب.",
+            "عمري ما ضحكت على نكتة أنا اللي قايلها.",
+            "عمري ما لبست شرابين مختلفين من غير ما آخد بالي.",
+            "عمري ما ناديت حد باسم شخص تاني.",
+            "عمري ما بعت فويس وبعدها ندمت.",
+            "عمري ما تجاهلت رسالة عمداً.",
+            "عمري ما فضلت أعمل ريفرش لصفحة مستني حاجة تحصل.",
+            "عمري ما عملت سكرين شوت لصورة قديمة.",
+            "عمري ما لغيت خروجة في آخر لحظة.",
+            "عمري ما أكلت فطار على العشا.",
+            "عمري ما عملت نفسي نايم عشان متكلمش مع حد.",
+            "عمري ما نسيت الباسورد بتاعي.",
+            "عمري ما صورت الأكل قبل ما آكله.",
+            "عمري ما ضحكت في موقف المفروض يكون جاد.",
+            "عمري ما عملت لايك بالغلط على بوست قديم.",
+            "عمري ما شوفت سبويلر قبل ما أشوف الفيلم.",
+            "عمري ما اشتريت حاجة وأنا عارف إني مش محتاجها.",
+            "عمري ما كلمت حيوان كأنه بيفهمني.",
+            "عمري ما لبست نفس الهدوم يومين ورا بعض.",
+            "عمري ما مثلت إني عارف أغنية وأنا مش حافظ كلامها.",
+            "عمري ما رقصت في الأسانسير.",
+            "عمري ما صورت سيلفي ومسحته في نفس اللحظة.",
+            "عمري ما فتحت التلاجة وأنا مش عارف عايز إيه.",
+            "عمري ما ضحكت وأنا بقرأ شات قديم.",
+            "عمري ما نسيت حاجة مهمة عشان كنت ماسك الموبايل.",
+            "عمري ما قضيت يوم كامل في السرير.",
+            "عمري ما اخترت أكلة عشان شكلها في الصورة بس.",
+            "عمري ما مثلت إني نايم عشان أسمع الناس بتتكلم.",
+            "عمري ما استخدمت شاحن حد من غير ما أستأذن.",
+            "عمري ما نمت وأنا بتكلم مع حد على الشات.",
+            "عمري ما اتفرجت على فيلم أكتر من خمس مرات.",
+            "عمري ما عملت Playlist مخصوصة لمود معين.",
+            "عمري ما ركبت مواصلة غلط.",
+            "عمري ما أكلت الحلو قبل الأكل.",
+            "عمري ما قضيت يوم كامل من غير ما أعمل أي حاجة مفيدة.",
+            "عمري ما مثلت إني واثق وأنا من جوايا متوتر.",
+            "عمري ما فتحت الموبايل وأنا عارف إن مفيش إشعارات.",
+            "عمري ما كتبت كلمة غلط غيرت معنى الرسالة كلها.",
+            "عمري ما ضحكت عشان كل اللي حواليا كانوا بيضحكوا.",
+            "عمري ما نسيت أنا كنت بقول إيه في نص الكلام.",
+            "عمري ما دخلت أوضة ونسيت أنا داخل ليه.",
+            "عمري ما سمعت كلام ناس من غير ما يعرفوا.",
+            "عمري ما شفت Tutorial وبرضه مافهمتش أعمل إيه.",
+            "عمري ما اشتريت حاجة لمجرد إنها عليها خصم.",
+            "عمري ما قعدت وقت طويل أختار فيلم أتفرج عليه.",
+            "عمري ما عملت نفسي مهتم بحاجة عشان مكسفش حد.",
+            "عمري ما نسيت أرد على حد كام يوم.",
+            "عمري ما عملت خطة وأنا في الحقيقة مستني إنها تتلغي.",
+            "عمري ما دورت على موبايلي وأنا ماسكه في إيدي.",
+            "عمري ما سألت جوجل عن حاجة كنت مكسوف أسأل عنها.",
+            "عمري ما أكلت كيس سناكس كامل لوحدي.",
+            "عمري ما فضلت Online عشان مستني رسالة من حد.",
+            "عمري ما مسحت صورة عشان شكلي مكنش عاجبني فيها.",
+            "عمري ما ضحكت على حاجة مينفعش أضحك عليها.",
+            "عمري ما نسيت ميعاد مهم.",
+            "عمري ما عملت نفسي مشغول وأنا حرفياً بعمل ولا حاجة.",
+            "عمري ما غيرت لبسي أكتر من مرة قبل ما أخرج.",
+            "عمري ما تحمست لخروجة وبعدها كرهت فكرة إني أروح.",
+            "عمري ما بصيت على حالة الجو وبعدها عملت عكسها.",
+            "عمري ما رديت بالغلط على شات غلط.",
+            "عمري ما فضلت صاحي وأنا بفتكر موقف محرج حصل لي.",
+            "عمري ما أخدت قرار وبعدها ندمت عليه على طول.",
+            "عمري ما دخلت مكان وأنا مش عارف أنا جاي أعمل إيه.",
+            "عمري ما مثلت إني فاكر حد وأنا في الحقيقة ناسي اسمه.",
+            "عمري ما قلت لحد \"أنا جاي\" وأنا لسه في البيت.",
+            "عمري ما فتحت رسالة وقعدت أأجل الرد عليها.",
+            "عمري ما عملت نفسي مش سامع عشان متردش على حد.",
+            "عمري ما اتفرجت على فيديو قصير لمدة ساعة من غير ما أحس.",
+            "عمري ما قعدت أختار صورة بروفايل وقت طويل.",
+            "عمري ما غيرت رأيي في حاجة بسبب رأي حد تاني.",
+            "عمري ما ضحكت لوحدي وأنا فاكر موقف قديم.",
+            "عمري ما عملت Screenshot لحاجة عشان أفتكرها وبعدين نسيتها.",
+            "عمري ما نسيت مكان ركنت فيه العربية.",
+            "عمري ما دخلت أعمل حاجة على الموبايل ونسيت أنا كنت عايز إيه.",
+            "عمري ما قلت \"آخر فيديو\" وكملت ساعة بعدها.",
+            "عمري ما فتحت الكاميرا بالغلط قدام الناس.",
+            "عمري ما سجلت فويس طويل وبعدين قررت أكتبه بدل ما أبعت الفويس.",
+            "عمري ما قلت إني مش هنام بدري ونمت متأخر جدًا.",
+            "عمري ما فرحت إن حد لغى معاد كنت مش عايز أروحه.",
+            "عمري ما حفظت رقم حد باسم غريب.",
+            "عمري ما عملت حساب Fake عشان أتفرج على حاجة.",
+            "عمري ما فضلت ساكت عشان مكسوف أقول رأيي.",
+            "عمري ما قلت \"مش فارقة\" وهي كانت فارقة جدًا.",
+            "عمري ما عملت نفسي فاهم النكتة وأنا مش فاهمها."
+        ];
+
+
+        const statementEl = document.getElementById("statement");
+        const counterEl = document.getElementById("counter");
+        const card = document.getElementById("card");
+        const nextBtn = document.getElementById("nextBtn");
+        const resetBtn = document.getElementById("resetBtn");
+
+        const STORAGE_KEY = "neverHaveIEverGame";
+
+        let remainingStatements = [];
+        let usedCount = 0;
+
+        // Load saved game
+        function loadGame() {
+            const savedGame = localStorage.getItem(STORAGE_KEY);
+
+            if (!savedGame) {
+                remainingStatements = [...statements];
+                usedCount = 0;
+                updateCounter();
+                return;
+            }
+
+            try {
+                const data = JSON.parse(savedGame);
+
+                // التأكد إن البيانات المحفوظة سليمة
+                if (
+                    Array.isArray(data.remainingStatements) &&
+                    typeof data.usedCount === "number"
+                ) {
+                    remainingStatements = data.remainingStatements;
+                    usedCount = data.usedCount;
+                } else {
+                    resetGame(false);
+                    return;
+                }
+
+                updateCounter();
+
+                if (usedCount === 0) {
+                    statementEl.textContent = "Press the button to start!";
+                } else if (remainingStatements.length === 0) {
+                    statementEl.textContent = "You've seen all the statements! 🎉";
+                    disableNextButton();
+                } else if (data.currentStatement) {
+                    statementEl.textContent = data.currentStatement;
+                }
+
+            } catch (error) {
+                console.error("Error loading game:", error);
+                resetGame(false);
+            }
+        }
+
+        // Save game
+        function saveGame(currentStatement = null) {
+            const gameData = {
+                remainingStatements,
+                usedCount,
+                currentStatement
+            };
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(gameData)
+            );
+        }
+
+        // Update counter
+        function updateCounter() {
+            counterEl.textContent =
+                `${usedCount} / ${statements.length}`;
+        }
+
+        // Show random statement
+        function showRandomStatement() {
+
+            if (remainingStatements.length === 0) {
+                statementEl.textContent =
+                    "You've seen all the statements! 🎉";
+
+                counterEl.textContent =
+                    `${statements.length} / ${statements.length}`;
+
+                disableNextButton();
+
+                saveGame(statementEl.textContent);
+
+                return;
+            }
+
+            const randomIndex = Math.floor(
+                Math.random() * remainingStatements.length
+            );
+
+            const selectedStatement =
+                remainingStatements.splice(randomIndex, 1)[0];
+
+            usedCount++;
+
+            // Restart animation
+            statementEl.classList.remove("animation");
+            void statementEl.offsetWidth;
+            statementEl.classList.add("animation");
+
+            statementEl.textContent = selectedStatement;
+
+            updateCounter();
+
+            // Save after every question
+            saveGame(selectedStatement);
+
+            // Disable button when all questions are used
+            if (remainingStatements.length === 0) {
+                disableNextButton();
+            }
+        }
+
+        // Disable next button
+        function disableNextButton() {
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = "0.5";
+            nextBtn.style.cursor = "not-allowed";
+        }
+
+        // Enable next button
+        function enableNextButton() {
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = "1";
+            nextBtn.style.cursor = "pointer";
+        }
+
+        // Reset game
+        function resetGame(save = true) {
+
+            remainingStatements = [...statements];
+            usedCount = 0;
+
+            statementEl.textContent =
+                "Press the button to start!";
+
+            updateCounter();
+
+            enableNextButton();
+
+            if (save) {
+                localStorage.removeItem(STORAGE_KEY);
+            }
+        }
+
+        nextBtn.addEventListener(
+            "click",
+            showRandomStatement
+        );
+
+        resetBtn.addEventListener(
+            "click",
+            resetGame
+        );
+
+        // Start
+        loadGame();
+    </script>
+
+</body>
+
+</html>
