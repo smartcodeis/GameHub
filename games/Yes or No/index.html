@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yes / No</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="title-area">
+                <span class="icon">🎲</span>
+
+                <div>
+                    <h1>Yes / No</h1>
+                    <p>Let fate decide for you.</p>
+                </div>
+            </div>
+
+            <button id="soundBtn" class="icon-btn" type="button" aria-label="Toggle sound">
+                🔊
+            </button>
+        </header>
+
+
+        <!-- Main Card -->
+        <section class="decision-card">
+
+            <div class="question-label">
+                YOUR ANSWER
+            </div>
+
+            <div id="result" class="result">
+                <span>?</span>
+            </div>
+
+            <p id="status" class="status">
+                Ask yourself a question...
+            </p>
+
+            <button id="decideBtn" class="decide-btn" type="button">
+                <span>Decide</span>
+                <span class="dice">🎲</span>
+            </button>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <span class="stat-icon">🎯</span>
+
+                <div>
+                    <span class="stat-label">Total</span>
+                    <strong id="totalCount">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card yes-stat">
+                <span class="stat-icon">✓</span>
+
+                <div>
+                    <span class="stat-label">Yes</span>
+                    <strong id="yesCount">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card no-stat">
+                <span class="stat-icon">×</span>
+
+                <div>
+                    <span class="stat-label">No</span>
+                    <strong id="noCount">0</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Distribution -->
+        <section class="distribution">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Statistics</h2>
+                    <p>Your decision distribution</p>
+                </div>
+
+                <span id="percentageText">0 / 0</span>
+            </div>
+
+            <div class="bar-container">
+
+                <div class="bar-label">
+                    <span>YES</span>
+                    <strong id="yesPercentage">0%</strong>
+                </div>
+
+                <div class="progress">
+                    <div id="yesBar" class="progress-fill yes-fill"></div>
+                </div>
+
+            </div>
+
+
+            <div class="bar-container">
+
+                <div class="bar-label">
+                    <span>NO</span>
+                    <strong id="noPercentage">0%</strong>
+                </div>
+
+                <div class="progress">
+                    <div id="noBar" class="progress-fill no-fill"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- History -->
+        <section class="history">
+
+            <div class="section-heading">
+                <div>
+                    <h2>History</h2>
+                    <p>Your recent decisions</p>
+                </div>
+
+                <button id="clearBtn" class="clear-btn" type="button">
+                    Clear
+                </button>
+            </div>
+
+
+            <div id="historyList" class="history-list">
+
+                <div class="empty-history">
+                    <span>🎲</span>
+                    <p>No decisions yet</p>
+                    <small>Your results will appear here.</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <span>Auto Save</span>
+            <span class="save-dot"></span>
+            <span>Saved locally</span>
+        </footer>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
