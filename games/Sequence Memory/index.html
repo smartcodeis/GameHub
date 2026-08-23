@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Memory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="game">
+        <header class="header">
+            <div>
+                <p class="eyebrow">MEMORY GAME</p>
+                <h1>Sequence Memory</h1>
+                <p class="subtitle">Remember the number sequence</p>
+            </div>
+
+            <div class="level-box">
+                <span>LEVEL</span>
+                <strong id="level">1</strong>
+            </div>
+        </header>
+
+        <section class="game-card">
+
+            <div class="stats">
+                <div class="stat">
+                    <span>Difficulty</span>
+                    <strong id="difficulty">Easy</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Sequence</span>
+                    <strong id="sequenceLength">3</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Best</span>
+                    <strong id="bestScore">0</strong>
+                </div>
+            </div>
+
+            <div class="display">
+                <span id="message">Press Start to begin</span>
+                <div id="sequence" class="sequence"></div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="answer" placeholder="Enter the sequence..." maxlength="30" autocomplete="off"
+                    disabled>
+
+                <button id="submitBtn" disabled>Check Sequence</button>
+            </div>
+
+            <button id="startBtn" class="start-btn">Start Game</button>
+
+            <div id="result" class="result"></div>
+        </section>
+
+        <div class="instructions">
+            <span>💡</span>
+            <p>
+                Memorize the numbers in order, then type the exact sequence.
+                Each level gets harder.
+            </p>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
