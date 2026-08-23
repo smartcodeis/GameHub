@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="app">
+
+        <header class="header">
+            <div>
+                <span class="eyebrow">REFLEX GAME</span>
+                <h1>Reaction Test</h1>
+                <p>Test how fast you can react.</p>
+            </div>
+
+            <div class="best-box">
+                <span>BEST</span>
+                <strong id="bestScore">--</strong>
+            </div>
+        </header>
+
+        <section class="game-card">
+
+            <div class="status" id="status">
+                Press Start to begin
+            </div>
+
+            <button class="reaction-area" id="reactionArea">
+                <div class="reaction-content">
+                    <div class="icon" id="reactionIcon">⚡</div>
+                    <h2 id="reactionTitle">Ready?</h2>
+                    <p id="reactionText">Press the button below to start</p>
+                </div>
+            </button>
+
+            <button class="start-btn" id="startBtn">
+                Start Test
+            </button>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span>Current</span>
+                    <strong id="currentScore">--</strong>
+                    <small>ms</small>
+                </div>
+
+                <div class="stat">
+                    <span>Average</span>
+                    <strong id="averageScore">--</strong>
+                    <small>ms</small>
+                </div>
+
+                <div class="stat">
+                    <span>Attempts</span>
+                    <strong id="attempts">0</strong>
+                    <small>tests</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="history-section">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">RECORDS</span>
+                    <h2>History</h2>
+                </div>
+
+                <button class="clear-btn" id="clearHistory">
+                    Clear
+                </button>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <div class="empty-history">
+                    <span>⏱</span>
+                    <p>No reaction times yet</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
