@@ -1,0 +1,964 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "question": "What is the funniest thing that happened to you?"
+        },
+        {
+            "id": 2,
+            "question": "What is your biggest fear?"
+        },
+        {
+            "id": 3,
+            "question": "What is the most embarrassing thing you've done?"
+        },
+        {
+            "id": 4,
+            "question": "What is one thing you would never do again?"
+        },
+        {
+            "id": 5,
+            "question": "What is the weirdest food you've ever tried?"
+        },
+        {
+            "id": 6,
+            "question": "If you could travel anywhere right now, where would you go?"
+        },
+        {
+            "id": 7,
+            "question": "What is something you've always wanted to learn?"
+        },
+        {
+            "id": 8,
+            "question": "What is the best advice you've ever received?"
+        },
+        {
+            "id": 9,
+            "question": "What is the most useless talent you have?"
+        },
+        {
+            "id": 10,
+            "question": "What is one thing you cannot live without?"
+        },
+        {
+            "id": 11,
+            "question": "What is the strangest dream you've ever had?"
+        },
+        {
+            "id": 12,
+            "question": "What would you do if you could be invisible for one day?"
+        },
+        {
+            "id": 13,
+            "question": "What is your favorite childhood memory?"
+        },
+        {
+            "id": 14,
+            "question": "What is something that instantly makes you happy?"
+        },
+        {
+            "id": 15,
+            "question": "What is the craziest thing you've done with your friends?"
+        },
+        {
+            "id": 16,
+            "question": "What is something you are really proud of?"
+        },
+        {
+            "id": 17,
+            "question": "What is one habit you wish you could break?"
+        },
+        {
+            "id": 18,
+            "question": "What is something people often misunderstand about you?"
+        },
+        {
+            "id": 19,
+            "question": "What is the best decision you've ever made?"
+        },
+        {
+            "id": 20,
+            "question": "What is the worst decision you've ever made?"
+        },
+        {
+            "id": 21,
+            "question": "What is something you regret not doing?"
+        },
+        {
+            "id": 22,
+            "question": "What is something you wish you could change about yourself?"
+        },
+        {
+            "id": 23,
+            "question": "What is your biggest pet peeve?"
+        },
+        {
+            "id": 24,
+            "question": "What is something that always annoys you?"
+        },
+        {
+            "id": 25,
+            "question": "What is something that always makes you laugh?"
+        },
+        {
+            "id": 26,
+            "question": "What is the nicest thing someone has ever done for you?"
+        },
+        {
+            "id": 27,
+            "question": "What is the nicest thing you've ever done for someone?"
+        },
+        {
+            "id": 28,
+            "question": "What is one thing you wish more people knew about you?"
+        },
+        {
+            "id": 29,
+            "question": "What is something you are secretly good at?"
+        },
+        {
+            "id": 30,
+            "question": "What is something you are terrible at?"
+        },
+        {
+            "id": 31,
+            "question": "What is the most spontaneous thing you've ever done?"
+        },
+        {
+            "id": 32,
+            "question": "What is the most adventurous thing you've ever done?"
+        },
+        {
+            "id": 33,
+            "question": "What is the biggest risk you've ever taken?"
+        },
+        {
+            "id": 34,
+            "question": "What is the most awkward conversation you've ever had?"
+        },
+        {
+            "id": 35,
+            "question": "What is the funniest mistake you've ever made?"
+        },
+        {
+            "id": 36,
+            "question": "What is the most embarrassing message you've ever sent?"
+        },
+        {
+            "id": 37,
+            "question": "Have you ever pretended to understand something you didn't?"
+        },
+        {
+            "id": 38,
+            "question": "Have you ever laughed at the worst possible moment?"
+        },
+        {
+            "id": 39,
+            "question": "Have you ever lied to get out of plans?"
+        },
+        {
+            "id": 40,
+            "question": "Have you ever sent a message to the wrong person?"
+        },
+        {
+            "id": 41,
+            "question": "What is the weirdest excuse you've ever used?"
+        },
+        {
+            "id": 42,
+            "question": "What is the weirdest thing you believed as a child?"
+        },
+        {
+            "id": 43,
+            "question": "What is the strangest habit you have?"
+        },
+        {
+            "id": 44,
+            "question": "What is the strangest thing you've ever done when you were alone?"
+        },
+        {
+            "id": 45,
+            "question": "What is the funniest nickname you've ever had?"
+        },
+        {
+            "id": 46,
+            "question": "What is the most ridiculous thing you've ever spent money on?"
+        },
+        {
+            "id": 47,
+            "question": "What is the longest you've stayed awake?"
+        },
+        {
+            "id": 48,
+            "question": "What is the first thing you do when you wake up?"
+        },
+        {
+            "id": 49,
+            "question": "What is the last thing you usually do before going to sleep?"
+        },
+        {
+            "id": 50,
+            "question": "What is something you could talk about for hours?"
+        },
+        {
+            "id": 51,
+            "question": "What is something you could never get bored of?"
+        },
+        {
+            "id": 52,
+            "question": "What is something you wish you had more time for?"
+        },
+        {
+            "id": 53,
+            "question": "What is something you spend way too much time doing?"
+        },
+        {
+            "id": 54,
+            "question": "What is something you would love to try at least once?"
+        },
+        {
+            "id": 55,
+            "question": "What is one place you really want to visit?"
+        },
+        {
+            "id": 56,
+            "question": "If you could live anywhere for a year, where would you live?"
+        },
+        {
+            "id": 57,
+            "question": "If you could have any job for one week, what would you choose?"
+        },
+        {
+            "id": 58,
+            "question": "If you could instantly master one skill, what would it be?"
+        },
+        {
+            "id": 59,
+            "question": "If you could relive one day from your life, which day would you choose?"
+        },
+        {
+            "id": 60,
+            "question": "If you could change one decision from your past, what would it be?"
+        },
+        {
+            "id": 61,
+            "question": "If you could meet your future self, what would you ask?"
+        },
+        {
+            "id": 62,
+            "question": "If you could give your younger self one piece of advice, what would it be?"
+        },
+        {
+            "id": 63,
+            "question": "If you suddenly became rich, what would you buy first?"
+        },
+        {
+            "id": 64,
+            "question": "If you had to move to another country tomorrow, where would you go?"
+        },
+        {
+            "id": 65,
+            "question": "If you could have one superpower, what would you choose?"
+        },
+        {
+            "id": 66,
+            "question": "If you could read one person's mind, whose mind would you read?"
+        },
+        {
+            "id": 67,
+            "question": "If you could erase one memory, would you?"
+        },
+        {
+            "id": 68,
+            "question": "If you had one completely free day, how would you spend it?"
+        },
+        {
+            "id": 69,
+            "question": "If you could swap lives with someone for one day, who would it be?"
+        },
+        {
+            "id": 70,
+            "question": "If you had to eat one meal for the rest of your life, what would it be?"
+        },
+        {
+            "id": 71,
+            "question": "What is the first thing you notice about someone?"
+        },
+        {
+            "id": 72,
+            "question": "What personality trait do you value most in people?"
+        },
+        {
+            "id": 73,
+            "question": "What personality trait annoys you the most?"
+        },
+        {
+            "id": 74,
+            "question": "Do you trust people easily?"
+        },
+        {
+            "id": 75,
+            "question": "Do you forgive people easily?"
+        },
+        {
+            "id": 76,
+            "question": "What makes you lose trust in someone?"
+        },
+        {
+            "id": 77,
+            "question": "What makes you instantly trust someone?"
+        },
+        {
+            "id": 78,
+            "question": "What do you usually do when you're upset?"
+        },
+        {
+            "id": 79,
+            "question": "Do you prefer talking about your problems or keeping them to yourself?"
+        },
+        {
+            "id": 80,
+            "question": "What makes you feel appreciated?"
+        },
+        {
+            "id": 81,
+            "question": "What makes you feel safe around someone?"
+        },
+        {
+            "id": 82,
+            "question": "What is something you find difficult to say out loud?"
+        },
+        {
+            "id": 83,
+            "question": "What is something you wish people would ask you more often?"
+        },
+        {
+            "id": 84,
+            "question": "What is something you wish you were better at expressing?"
+        },
+        {
+            "id": 85,
+            "question": "What is one thing you would never tolerate in a friendship?"
+        },
+        {
+            "id": 86,
+            "question": "What is the most important quality in a good friend?"
+        },
+        {
+            "id": 87,
+            "question": "What is your favorite memory with your friends?"
+        },
+        {
+            "id": 88,
+            "question": "Who is the person you can call at 3 AM?"
+        },
+        {
+            "id": 89,
+            "question": "What is something you wish you could do with your friends?"
+        },
+        {
+            "id": 90,
+            "question": "What is the funniest memory you have with your friends?"
+        },
+        {
+            "id": 91,
+            "question": "What is the biggest lesson friendship has taught you?"
+        },
+        {
+            "id": 92,
+            "question": "What is the most important thing in a relationship to you?"
+        },
+        {
+            "id": 93,
+            "question": "What is your biggest relationship red flag?"
+        },
+        {
+            "id": 94,
+            "question": "What is your biggest relationship green flag?"
+        },
+        {
+            "id": 95,
+            "question": "What makes you feel loved?"
+        },
+        {
+            "id": 96,
+            "question": "What is the sweetest thing someone has ever done for you?"
+        },
+        {
+            "id": 97,
+            "question": "What is your idea of a perfect date?"
+        },
+        {
+            "id": 98,
+            "question": "Do you believe people can fall in love at first sight?"
+        },
+        {
+            "id": 99,
+            "question": "What is something that can instantly make you attracted to someone?"
+        },
+        {
+            "id": 100,
+            "question": "What is something that can instantly make you lose interest in someone?"
+        },
+        {
+            "id": 101,
+            "question": "Would you rather be loved or respected?"
+        },
+        {
+            "id": 102,
+            "question": "Would you rather be rich or famous?"
+        },
+        {
+            "id": 103,
+            "question": "Would you rather know the future or change the past?"
+        },
+        {
+            "id": 104,
+            "question": "Would you rather have unlimited money or unlimited free time?"
+        },
+        {
+            "id": 105,
+            "question": "Would you rather live in the city or somewhere quiet?"
+        },
+        {
+            "id": 106,
+            "question": "Would you rather have one best friend or many close friends?"
+        },
+        {
+            "id": 107,
+            "question": "Would you rather always say what you think or never speak your mind?"
+        },
+        {
+            "id": 108,
+            "question": "Would you rather be extremely lucky or extremely intelligent?"
+        },
+        {
+            "id": 109,
+            "question": "Would you rather have your dream job or your dream home?"
+        },
+        {
+            "id": 110,
+            "question": "Would you rather travel the world or settle down in your dream place?"
+        },
+        {
+            "id": 111,
+            "question": "What is one secret you are comfortable sharing?"
+        },
+        {
+            "id": 112,
+            "question": "What is something you have never told most people?"
+        },
+        {
+            "id": 113,
+            "question": "Have you ever pretended not to care when you actually cared a lot?"
+        },
+        {
+            "id": 114,
+            "question": "Have you ever ignored someone's message on purpose?"
+        },
+        {
+            "id": 115,
+            "question": "Have you ever had a crush on someone you couldn't tell?"
+        },
+        {
+            "id": 116,
+            "question": "What is something you are jealous of?"
+        },
+        {
+            "id": 117,
+            "question": "Who is someone you would like to apologize to?"
+        },
+        {
+            "id": 118,
+            "question": "What is something you wish you had said to someone?"
+        },
+        {
+            "id": 119,
+            "question": "What is something you have done that nobody would expect from you?"
+        },
+        {
+            "id": 120,
+            "question": "What is one thing you would never admit without being asked?"
+        },
+        {
+            "id": 121,
+            "question": "What is the happiest moment of your life so far?"
+        },
+        {
+            "id": 122,
+            "question": "What is the hardest thing you've ever gone through?"
+        },
+        {
+            "id": 123,
+            "question": "What is something that changed the way you see life?"
+        },
+        {
+            "id": 124,
+            "question": "Who has had the biggest impact on your life?"
+        },
+        {
+            "id": 125,
+            "question": "What is the biggest lesson life has taught you?"
+        },
+        {
+            "id": 126,
+            "question": "What is something you want to accomplish before the year ends?"
+        },
+        {
+            "id": 127,
+            "question": "What is your biggest dream right now?"
+        },
+        {
+            "id": 128,
+            "question": "What does success mean to you?"
+        },
+        {
+            "id": 129,
+            "question": "What does happiness mean to you?"
+        },
+        {
+            "id": 130,
+            "question": "What is something you hope your future self will be proud of?"
+        },
+        {
+            "id": 131,
+            "question": "What is a small thing that can completely change your mood?"
+        },
+        {
+            "id": 132,
+            "question": "What is something you used to hate but now love?"
+        },
+        {
+            "id": 133,
+            "question": "What is something you loved as a child that you still enjoy?"
+        },
+        {
+            "id": 134,
+            "question": "What is a sound that instantly brings back a memory?"
+        },
+        {
+            "id": 135,
+            "question": "What smell reminds you of your childhood?"
+        },
+        {
+            "id": 136,
+            "question": "What is a place that feels like home to you?"
+        },
+        {
+            "id": 137,
+            "question": "What is one thing you always carry with you?"
+        },
+        {
+            "id": 138,
+            "question": "What is something you never leave the house without?"
+        },
+        {
+            "id": 139,
+            "question": "What is the most random thing currently in your pocket or bag?"
+        },
+        {
+            "id": 140,
+            "question": "What is one thing you could happily spend an entire day doing?"
+        },
+        {
+            "id": 141,
+            "question": "What is your favorite way to spend a lazy day?"
+        },
+        {
+            "id": 142,
+            "question": "What is something you do differently when nobody is around?"
+        },
+        {
+            "id": 143,
+            "question": "What is a weird thing that you find satisfying?"
+        },
+        {
+            "id": 144,
+            "question": "What is something you always procrastinate on?"
+        },
+        {
+            "id": 145,
+            "question": "What is the easiest way to make you lose your patience?"
+        },
+        {
+            "id": 146,
+            "question": "What is something you are surprisingly competitive about?"
+        },
+        {
+            "id": 147,
+            "question": "What is something you take way too seriously?"
+        },
+        {
+            "id": 148,
+            "question": "What is something you pretend to like just to fit in?"
+        },
+        {
+            "id": 149,
+            "question": "What is something popular that you secretly dislike?"
+        },
+        {
+            "id": 150,
+            "question": "What is something unpopular that you genuinely love?"
+        },
+        {
+            "id": 151,
+            "question": "What is the most useless thing you know a lot about?"
+        },
+        {
+            "id": 152,
+            "question": "What is a skill you wish schools actually taught?"
+        },
+        {
+            "id": 153,
+            "question": "What is something you wish you had started doing earlier?"
+        },
+        {
+            "id": 154,
+            "question": "What is something you started and never finished?"
+        },
+        {
+            "id": 155,
+            "question": "What is a goal you keep putting off?"
+        },
+        {
+            "id": 156,
+            "question": "What is something you would love to become an expert at?"
+        },
+        {
+            "id": 157,
+            "question": "What is something you wish you could do without being afraid of failing?"
+        },
+        {
+            "id": 158,
+            "question": "What is something you are willing to spend a lot of money on?"
+        },
+        {
+            "id": 159,
+            "question": "What is something you refuse to spend money on?"
+        },
+        {
+            "id": 160,
+            "question": "What is the best purchase you've ever made?"
+        },
+        {
+            "id": 161,
+            "question": "What is a purchase you wish you had never made?"
+        },
+        {
+            "id": 162,
+            "question": "What is something you would buy immediately if money didn't matter?"
+        },
+        {
+            "id": 163,
+            "question": "What is the most valuable thing you own that isn't expensive?"
+        },
+        {
+            "id": 164,
+            "question": "What is something you would save if your house was on fire?"
+        },
+        {
+            "id": 165,
+            "question": "What is one luxury you would never want to live without?"
+        },
+        {
+            "id": 166,
+            "question": "What is something you think is overrated?"
+        },
+        {
+            "id": 167,
+            "question": "What is something you think is underrated?"
+        },
+        {
+            "id": 168,
+            "question": "What is a trend you could never understand?"
+        },
+        {
+            "id": 169,
+            "question": "What is a trend you actually enjoyed?"
+        },
+        {
+            "id": 170,
+            "question": "What is one rule you would remove from everyday life?"
+        },
+        {
+            "id": 171,
+            "question": "What is one rule you think everyone should follow?"
+        },
+        {
+            "id": 172,
+            "question": "What is something you would change about your daily routine?"
+        },
+        {
+            "id": 173,
+            "question": "What part of your day do you look forward to the most?"
+        },
+        {
+            "id": 174,
+            "question": "What part of your day do you usually dread?"
+        },
+        {
+            "id": 175,
+            "question": "What is something you do when you need to clear your mind?"
+        },
+        {
+            "id": 176,
+            "question": "Where do you go when you need some time alone?"
+        },
+        {
+            "id": 177,
+            "question": "What is your favorite way to relax after a stressful day?"
+        },
+        {
+            "id": 178,
+            "question": "What is something that helps you feel better when you're having a bad day?"
+        },
+        {
+            "id": 179,
+            "question": "What is something that makes you feel instantly nostalgic?"
+        },
+        {
+            "id": 180,
+            "question": "What is a childhood rule you never understood?"
+        },
+        {
+            "id": 181,
+            "question": "What did you want to become when you were a child?"
+        },
+        {
+            "id": 182,
+            "question": "What was your favorite thing to do after school as a kid?"
+        },
+        {
+            "id": 183,
+            "question": "What is a childhood belief you eventually realized was completely wrong?"
+        },
+        {
+            "id": 184,
+            "question": "What is the funniest thing you believed when you were young?"
+        },
+        {
+            "id": 185,
+            "question": "What is something from your childhood you wish still existed?"
+        },
+        {
+            "id": 186,
+            "question": "What was your biggest childhood obsession?"
+        },
+        {
+            "id": 187,
+            "question": "What is a childhood dream you gave up on?"
+        },
+        {
+            "id": 188,
+            "question": "What is one thing your younger self would be surprised about today?"
+        },
+        {
+            "id": 189,
+            "question": "What is the funniest thing your family has ever done?"
+        },
+        {
+            "id": 190,
+            "question": "What is a family tradition you actually enjoy?"
+        },
+        {
+            "id": 191,
+            "question": "What is something your family always teases you about?"
+        },
+        {
+            "id": 192,
+            "question": "Who in your family knows you the best?"
+        },
+        {
+            "id": 193,
+            "question": "What is a lesson you learned from your parents?"
+        },
+        {
+            "id": 194,
+            "question": "What is something you wish you had asked your grandparents?"
+        },
+        {
+            "id": 195,
+            "question": "What is the funniest argument you've ever had with someone?"
+        },
+        {
+            "id": 196,
+            "question": "What is the longest you've stayed angry at someone?"
+        },
+        {
+            "id": 197,
+            "question": "What is something you can never stay mad about?"
+        },
+        {
+            "id": 198,
+            "question": "What is the fastest way to make you forgive someone?"
+        },
+        {
+            "id": 199,
+            "question": "What is something you wish people would stop doing to you?"
+        },
+        {
+            "id": 200,
+            "question": "What is something you do when you are secretly annoyed?"
+        },
+        {
+            "id": 201,
+            "question": "What is the hardest apology you've ever had to give?"
+        },
+        {
+            "id": 202,
+            "question": "What is the hardest apology you've ever received?"
+        },
+        {
+            "id": 203,
+            "question": "What is something you learned from a failed friendship?"
+        },
+        {
+            "id": 204,
+            "question": "What is something you would never do to someone you care about?"
+        },
+        {
+            "id": 205,
+            "question": "What makes someone instantly memorable to you?"
+        },
+        {
+            "id": 206,
+            "question": "What is the first thing that makes you feel comfortable around someone?"
+        },
+        {
+            "id": 207,
+            "question": "What is something that makes you want to know someone better?"
+        },
+        {
+            "id": 208,
+            "question": "What is something that makes you immediately dislike someone?"
+        },
+        {
+            "id": 209,
+            "question": "What is the biggest compliment someone could give you?"
+        },
+        {
+            "id": 210,
+            "question": "What compliment do you remember to this day?"
+        },
+        {
+            "id": 211,
+            "question": "What is something you wish your friends noticed about you?"
+        },
+        {
+            "id": 212,
+            "question": "What is something you appreciate but rarely say out loud?"
+        },
+        {
+            "id": 213,
+            "question": "What is something you would like to hear from someone right now?"
+        },
+        {
+            "id": 214,
+            "question": "What is something you find difficult to forgive?"
+        },
+        {
+            "id": 215,
+            "question": "What is something you would never compromise on?"
+        },
+        {
+            "id": 216,
+            "question": "What is one boundary you wish more people respected?"
+        },
+        {
+            "id": 217,
+            "question": "What is something you learned about yourself recently?"
+        },
+        {
+            "id": 218,
+            "question": "What is something you used to care about that no longer matters to you?"
+        },
+        {
+            "id": 219,
+            "question": "What opinion have you completely changed your mind about?"
+        },
+        {
+            "id": 220,
+            "question": "What is something you wish you had the courage to say?"
+        },
+        {
+            "id": 221,
+            "question": "What is something you are afraid people might judge you for?"
+        },
+        {
+            "id": 222,
+            "question": "What is something you wish you worried about less?"
+        },
+        {
+            "id": 223,
+            "question": "What is something you are more confident about now than you were a few years ago?"
+        },
+        {
+            "id": 224,
+            "question": "What is something you still don't know about yourself?"
+        },
+        {
+            "id": 225,
+            "question": "What is one thing you would like to be remembered for?"
+        },
+        {
+            "id": 226,
+            "question": "What is something you hope never changes about you?"
+        },
+        {
+            "id": 227,
+            "question": "What is something you hope changes about your life?"
+        },
+        {
+            "id": 228,
+            "question": "What would your perfect weekend look like?"
+        },
+        {
+            "id": 229,
+            "question": "What would your perfect ordinary day look like?"
+        },
+        {
+            "id": 230,
+            "question": "What would you do if you had no responsibilities for a month?"
+        },
+        {
+            "id": 231,
+            "question": "What would you do if you knew you could not fail?"
+        },
+        {
+            "id": 232,
+            "question": "What would you do if you had to start your life over in a completely new place?"
+        },
+        {
+            "id": 233,
+            "question": "What would you do if you had to give away everything you own except five things?"
+        },
+        {
+            "id": 234,
+            "question": "What would you do if you could pause time for one hour every day?"
+        },
+        {
+            "id": 235,
+            "question": "What would you do if you could instantly become famous for something?"
+        },
+        {
+            "id": 236,
+            "question": "What would you do if you could spend one day with anyone from your past?"
+        },
+        {
+            "id": 237,
+            "question": "What would you do if you could experience one memory again exactly as it happened?"
+        },
+        {
+            "id": 238,
+            "question": "What would you choose if you could have a completely different personality for one day?"
+        },
+        {
+            "id": 239,
+            "question": "What is one thing you would do if you knew nobody would judge you?"
+        },
+        {
+            "id": 240,
+            "question": "What is one experience you think everyone should have at least once?"
+        }
+    ]
+}

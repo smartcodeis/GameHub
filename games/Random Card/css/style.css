@@ -1,0 +1,632 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #18181b;
+    --muted: #71717a;
+    --border: #e4e4e7;
+    --primary: #18181b;
+    --secondary: #f4f4f5;
+
+    --radius: 24px;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top,
+            #ffffff 0%,
+            var(--bg) 55%);
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    padding: 40px 20px;
+}
+
+
+button {
+    font: inherit;
+}
+
+
+.app {
+    width: min(100%, 900px);
+    margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 45px;
+}
+
+
+.eyebrow {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+}
+
+
+.header h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 12px;
+}
+
+
+.header p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+
+/* =========================
+   LANGUAGE SELECTOR
+========================= */
+
+.language-selector {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+
+.lang-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--muted);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+
+.lang-btn:hover {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+
+.lang-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+
+.counter {
+    min-width: 90px;
+
+    padding: 14px 18px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+
+.counter span {
+    display: block;
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+.counter small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.card-area {
+    width: min(100%, 650px);
+
+    perspective: 1200px;
+}
+
+
+.card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(145deg,
+            #ffffff,
+            #f8f8f8);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(0, 0, 0, 0.04);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: #f0f0f2;
+
+    top: -110px;
+    right: -110px;
+
+    z-index: 0;
+}
+
+
+.card-top,
+.question-wrapper,
+.card-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.card-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    background: var(--secondary);
+
+    border-radius: 50%;
+
+    font-size: 11px;
+}
+
+
+.question-wrapper {
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+
+.question-icon {
+    width: 54px;
+    height: 54px;
+
+    margin: 0 auto 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+.question-wrapper p {
+    max-width: 520px;
+
+    margin: auto;
+
+    font-size: clamp(24px, 4vw, 34px);
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.8px;
+}
+
+
+.card-bottom {
+    color: #a1a1aa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CARD ANIMATION
+========================= */
+
+.card.animate {
+    animation: cardIn 0.5s ease;
+}
+
+
+@keyframes cardIn {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(20px) rotateX(-8deg) scale(0.96);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            translateY(-4px) rotateX(2deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0) rotateX(0) scale(1);
+    }
+}
+
+
+/* =========================
+   DRAW BUTTON
+========================= */
+
+.draw-btn {
+    margin-top: 28px;
+
+    border: none;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 16px 28px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.draw-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+.draw-btn:active {
+    transform: translateY(1px);
+}
+
+
+.draw-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+.draw-icon {
+    font-size: 18px;
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-section {
+    margin-top: 65px;
+}
+
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-header h2 {
+    font-size: 22px;
+}
+
+
+.clear-btn {
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--muted);
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+
+.clear-btn:hover {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+
+.history {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    animation: historyIn 0.3s ease;
+}
+
+
+@keyframes historyIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.history-number {
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+.history-question {
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: #3f3f46;
+}
+
+
+.empty-history {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px dashed var(--border);
+
+    border-radius: 18px;
+}
+
+
+.empty-icon {
+    font-size: 28px;
+
+    color: #a1a1aa;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-history p {
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+.empty-history span {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+
+    .header {
+        align-items: center;
+
+        margin-bottom: 30px;
+    }
+
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+
+    .header p {
+        font-size: 13px;
+
+        max-width: 230px;
+
+        line-height: 1.5;
+    }
+
+
+    .counter {
+        min-width: 70px;
+
+        padding: 10px;
+    }
+
+
+    .counter span {
+        font-size: 20px;
+    }
+
+
+    .card {
+        min-height: 350px;
+
+        padding: 22px;
+    }
+
+
+    .question-wrapper {
+        padding: 20px 5px;
+    }
+
+
+    .question-wrapper p {
+        font-size: 24px;
+    }
+
+
+    .draw-btn {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .history-section {
+        margin-top: 50px;
+    }
+
+}
