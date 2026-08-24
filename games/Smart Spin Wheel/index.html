@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Spin Wheel - Decision Tool" />
+  <title>Smart Spin Wheel</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/wheel.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/buttons.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- Back to Home Button -->
+  <a href="../../index.html"
+    style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+    onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+    onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+  </a>
+
+  <div id="app">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <span class="brand-icon"> 🎡 </span>
+          <div class="brand-info">
+            <h1>Smart Spin Wheel</h1>
+            <span> Decision Tool </span>
+          </div>
+        </div>
+        <button id="createWheelBtn" class="icon-btn" type="button" title="Create Wheel">
+          +
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">
+          <div>
+            <h2>My Wheels</h2>
+            <span id="wheelCount"> 0 wheels </span>
+          </div>
+        </div>
+        <div id="wheelList" class="wheel-list">
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">
+          <h2>Examples</h2>
+        </div>
+
+        <div id="examplesList" class="examples-list">
+          <button type="button" class="example-item" data-example="food">
+            <span>🍔</span>
+            <span>Food</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="movies">
+            <span>🎬</span>
+            <span>Movies</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="places">
+            <span>📍</span>
+            <span>Places</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="games">
+            <span>🎮</span>
+            <span>Games</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="gifts">
+            <span>🎁</span>
+            <span>Gifts</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="songs">
+            <span>🎵</span>
+            <span>Songs</span>
+          </button>
+
+          <button type="button" class="example-item" data-example="truth-or-dare">
+            <span>🎲</span>
+            <span>Truth or Dare</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <header id="topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuBtn" class="icon-btn" type="button" aria-label="Open menu">
+            ☰
+          </button>
+          <div>
+            <span class="page-label"> Decision Tool </span>
+            <h2 id="pageTitle">Smart Spin Wheel</h2>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button id="newWheelBtn" class="primary-btn" type="button">
+            + New Wheel
+          </button>
+        </div>
+      </header>
+
+      <div id="workspace">
+        <section id="wheelPanel" class="panel">
+          <div class="panel-header">
+            <div class="wheel-title-area">
+              <button id="previousWheelBtn" class="icon-btn" type="button" aria-label="Previous wheel">
+                ←
+              </button>
+              <div>
+                <h2 id="currentWheelName">My Wheel</h2>
+                <span id="currentWheelItemCount"> 0 items </span>
+              </div>
+              <button id="nextWheelBtn" class="icon-btn" type="button" aria-label="Next wheel">
+                →
+              </button>
+            </div>
+
+            <div class="wheel-actions">
+              <button id="editWheelBtn" type="button">Edit</button>
+              <button id="duplicateWheelBtn" type="button">Duplicate</button>
+              <button id="deleteWheelBtn" type="button">Delete</button>
+            </div>
+          </div>
+
+
+          <div class="wheel-stage">
+            <div id="wheelPointer" class="wheel-pointer">▼</div>
+            <div id="wheelContainer" class="wheel-container">
+              <canvas id="wheelCanvas" width="600" height="600"> </canvas>
+              <div id="wheelCenter" class="wheel-center">
+                <span> SPIN </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spin-controls">
+            <button id="spinBtn" class="spin-btn" type="button">
+              <span> 🎡 </span>
+              <span> SPIN </span>
+            </button>
+            <div id="spinStatus" class="spin-status">Ready to spin</div>
+          </div>
+
+          <div id="winnerDisplay" class="winner-display hidden">
+            <span class="winner-icon"> 🎉 </span>
+            <div>
+              <span> Winner </span>
+              <strong id="winnerText"> — </strong>
+            </div>
+            <div class="winner-actions">
+              <button id="spinAgainBtn" type="button">Spin Again</button>
+              <button id="removeWinnerBtn" type="button">
+                Remove Winner
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="editorPanel" class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Wheel Items</h2>
+              <span> Drag and drop to reorder </span>
+            </div>
+            <button id="addItemBtn" class="primary-btn" type="button">
+              + Add Item
+            </button>
+          </div>
+          <div id="itemsContainer" class="items-container">
+          </div>
+          <div id="emptyItems" class="empty-state">
+            <span> 🎯 </span>
+            <h3>No items</h3>
+            <p>Add items to start using your wheel.</p>
+            <button id="emptyAddItemBtn" type="button">+ Add Item</button>
+          </div>
+        </section>
+
+        <section id="settingsPanel" class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Wheel Settings</h2>
+              <span> Customize your wheel </span>
+            </div>
+          </div>
+          <div class="settings-grid">
+            <div class="setting">
+              <label for="wheelNameInput"> Wheel Name </label>
+              <input id="wheelNameInput" type="text" placeholder="My Wheel" />
+            </div>
+            <div class="setting setting-toggle">
+              <div>
+                <label for="removeDuplicates"> Remove Duplicates </label>
+                <span> Automatically remove duplicate items </span>
+              </div>
+              <input id="removeDuplicates" type="checkbox" />
+            </div>
+
+            <div class="setting setting-toggle">
+              <div>
+                <label for="removeWinnerAfterSpin">
+                  Remove Winner After Spin
+                </label>
+                <span> Remove selected item automatically </span>
+              </div>
+              <input id="removeWinnerAfterSpin" type="checkbox" />
+            </div>
+
+            <div class="setting setting-toggle">
+              <div>
+                <label for="preventDuplicates">
+                  Prevent Duplicate Results
+                </label>
+                <span> Avoid recently selected items </span>
+              </div>
+              <input id="preventDuplicates" type="checkbox" />
+            </div>
+
+            <div class="setting setting-toggle">
+              <div>
+                <label for="enableSound"> Spin Sound </label>
+                <span> Play sound during spinning </span>
+              </div>
+              <input id="enableSound" type="checkbox" />
+            </div>
+
+            <div class="setting setting-toggle">
+              <div>
+                <label for="enableConfetti"> Confetti </label>
+                <span> Celebrate the winner </span>
+              </div>
+              <input id="enableConfetti" type="checkbox" />
+            </div>
+
+            <div class="setting setting-toggle">
+              <div>
+                <label for="highlightWinner"> Highlight Winner </label>
+                <span> Highlight selected segment </span>
+              </div>
+              <input id="highlightWinner" type="checkbox" />
+            </div>
+
+            <div class="setting">
+              <label for="spinDuration"> Spin Duration </label>
+              <div class="range-control">
+                <input id="spinDuration" type="range" min="1" max="15" value="5" />
+                <span id="spinDurationValue"> 5s </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="historyPanel" class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Spin History</h2>
+              <span> Previous results </span>
+            </div>
+            <button id="clearHistoryBtn" type="button">Clear</button>
+          </div>
+
+          <div id="historyContainer" class="history-container">
+          </div>
+
+          <div id="emptyHistory" class="empty-state">
+            <span> 📜 </span>
+            <p>No spin history yet.</p>
+          </div>
+        </section>
+
+        <section id="statisticsPanel" class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Statistics</h2>
+              <span> Wheel performance </span>
+            </div>
+          </div>
+
+          <div class="statistics-grid">
+            <article class="stat-card">
+              <span> Total Spins </span>
+              <strong id="totalSpins"> 0 </strong>
+            </article>
+
+            <article class="stat-card">
+              <span> Total Items </span>
+              <strong id="totalItems"> 0 </strong>
+            </article>
+
+            <article class="stat-card">
+              <span> Most Selected </span>
+              <strong id="mostSelected"> — </strong>
+            </article>
+
+            <article class="stat-card">
+              <span> Last Result </span>
+              <strong id="lastResult"> — </strong>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <aside id="rightSidebar" class="right-sidebar">
+      <section class="right-section">
+        <h2>Quick Actions</h2>
+        <button id="quickAddItemBtn" type="button">+ Add Item</button>
+        <button id="quickDuplicateBtn" type="button">Duplicate Wheel</button>
+        <button id="quickClearHistoryBtn" type="button">Clear History</button>
+      </section>
+
+      <section class="right-section">
+        <h2>Current Wheel</h2>
+        <div class="info-row">
+          <span> Name </span>
+          <strong id="sideWheelName"> My Wheel </strong>
+        </div>
+
+        <div class="info-row">
+          <span> Items </span>
+          <strong id="sideItemCount"> 0 </strong>
+        </div>
+
+        <div class="info-row">
+          <span> Spins </span>
+          <strong id="sideSpinCount"> 0 </strong>
+        </div>
+      </section>
+
+      <section id="saveStatus" class="save-status">
+        <span class="save-indicator"> ● </span>
+        <div>
+          <strong> Auto Save </strong>
+          <span id="saveMessage"> All changes saved </span>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <template id="itemTemplate">
+    <article class="wheel-item" draggable="true">
+      <div class="drag-handle">⋮⋮</div>
+
+      <div class="item-icon-wrapper">
+        <span class="item-icon"> 🎯 </span>
+      </div>
+
+      <div class="item-content">
+        <input type="text" class="item-name" placeholder="Item name" />
+        <div class="item-options">
+          <label>
+            <span> Color </span>
+            <input type="color" class="item-color" value="#6366f1" />
+          </label>
+          <label>
+            <span> Weight </span>
+            <input type="number" class="item-weight" min="1" value="1" />
+          </label>
+          <button type="button" class="item-icon-btn" data-action="icon">
+            Icon
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="remove-item-btn" aria-label="Remove item">
+        ×
+      </button>
+    </article>
+  </template>
+
+  <dialog id="createWheelModal">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2>Create Wheel</h2>
+          <p>Create a new decision wheel.</p>
+        </div>
+
+        <button id="closeCreateWheelModal" class="modal-close" type="button">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <label for="newWheelName"> Wheel Name </label>
+        <input id="newWheelName" type="text" placeholder="e.g. Dinner Choices" />
+      </div>
+
+      <footer class="modal-footer">
+        <button id="cancelCreateWheel" type="button">Cancel</button>
+        <button id="confirmCreateWheel" class="primary-btn" type="button">
+          Create Wheel
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="editWheelModal">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2>Edit Wheel</h2>
+        </div>
+        <button id="closeEditWheelModal" class="modal-close" type="button">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <label for="editWheelName"> Wheel Name </label>
+        <input id="editWheelName" type="text" />
+      </div>
+
+      <footer class="modal-footer">
+        <button id="cancelEditWheel" type="button">Cancel</button>
+        <button id="saveWheelChanges" class="primary-btn" type="button">
+          Save Changes
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="duplicateWheelModal">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2>Duplicate Wheel</h2>
+        </div>
+        <button id="closeDuplicateWheelModal" class="modal-close" type="button">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <label for="duplicateWheelName"> New Wheel Name </label>
+        <input id="duplicateWheelName" type="text" />
+      </div>
+
+      <footer class="modal-footer">
+        <button id="cancelDuplicateWheel" type="button">Cancel</button>
+        <button id="confirmDuplicateWheel" class="primary-btn" type="button">
+          Duplicate
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="deleteWheelModal">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2>Delete Wheel</h2>
+          <p>This action cannot be undone.</p>
+        </div>
+
+        <button id="closeDeleteWheelModal" class="modal-close" type="button">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <p>
+          Are you sure you want to delete
+          <strong id="deleteWheelName"> this wheel </strong>?
+        </p>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="cancelDeleteWheel" type="button">Cancel</button>
+        <button id="confirmDeleteWheel" class="danger-btn" type="button">
+          Delete
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="winnerModal">
+    <div class="winner-modal">
+      <span class="winner-modal-icon"> 🎉 </span>
+      <span> The Winner Is </span>
+      <h2 id="winnerModalText">—</h2>
+      <div class="winner-modal-actions">
+        <button id="winnerModalSpinAgain" type="button" class="primary-btn">
+          Spin Again
+        </button>
+        <button id="closeWinnerModal" type="button">Continue</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="iconModal">
+    <div class="modal">
+      <header class="modal-header">
+        <div>
+          <h2>Choose Icon</h2>
+        </div>
+        <button id="closeIconModal" class="modal-close" type="button">
+          ×
+        </button>
+      </header>
+
+      <div id="iconGrid" class="icon-grid">
+        <button type="button" data-icon="🎯">🎯</button>
+        <button type="button" data-icon="🍔">🍔</button>
+        <button type="button" data-icon="🍕">🍕</button>
+        <button type="button" data-icon="🍿">🍿</button>
+        <button type="button" data-icon="🍎">🍎</button>
+        <button type="button" data-icon="🎬">🎬</button>
+        <button type="button" data-icon="🎮">🎮</button>
+        <button type="button" data-icon="🎁">🎁</button>
+        <button type="button" data-icon="🎵">🎵</button>
+        <button type="button" data-icon="❤️">❤️</button>
+        <button type="button" data-icon="⭐">⭐</button>
+        <button type="button" data-icon="🔥">🔥</button>
+        <button type="button" data-icon="⚽">⚽</button>
+        <button type="button" data-icon="🏆">🏆</button>
+        <button type="button" data-icon="🎲">🎲</button>
+        <button type="button" data-icon="🚗">🚗</button>
+        <button type="button" data-icon="✈️">✈️</button>
+        <button type="button" data-icon="🏠">🏠</button>
+        <button type="button" data-icon="💰">💰</button>
+        <button type="button" data-icon="💎">💎</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

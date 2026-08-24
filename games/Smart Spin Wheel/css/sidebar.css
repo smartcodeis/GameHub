@@ -1,0 +1,171 @@
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    font-size: 30px;
+}
+
+.brand-info h1 {
+    font-size: 15px;
+}
+
+.brand-info span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.sidebar-section-header h2 {
+    font-size: 14px;
+}
+
+.sidebar-section-header span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.wheel-list,
+.examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.example-item,
+.wheel-list button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px;
+
+    border: 0;
+    border-radius: 9px;
+
+    background: transparent;
+
+    text-align: left;
+    color: var(--text);
+}
+
+.example-item:hover,
+.wheel-list button:hover {
+    background: var(--surface-2);
+}
+
+.empty-state {
+    padding: 30px 15px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+.empty-state span {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.empty-state p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+#rightSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.right-section {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.right-section h2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.right-section button {
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 7px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: white;
+    color: var(--text);
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 9px 0;
+
+    font-size: 13px;
+}
+
+.info-row span {
+    color: var(--muted);
+}
+
+.save-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+
+    background: #f0fdf4;
+    border-radius: 10px;
+}
+
+.save-indicator {
+    color: var(--success);
+}
+
+.save-status strong {
+    display: block;
+    font-size: 13px;
+}
+
+.save-status span:last-child {
+    color: var(--muted);
+    font-size: 11px;
+}

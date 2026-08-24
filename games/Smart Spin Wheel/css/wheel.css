@@ -1,0 +1,284 @@
+#wheelPanel {
+    overflow: hidden;
+}
+
+.wheel-stage {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+}
+
+.wheel-container {
+    position: relative;
+
+    width: min(600px, 80vw);
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    transition:
+        filter 0.3s ease;
+}
+
+.wheel-pointer {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    font-size: 32px;
+    color: var(--danger);
+
+    filter: drop-shadow(
+        0 3px 4px rgba(0, 0, 0, 0.2)
+    );
+}
+
+.wheel-center {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.15);
+
+    font-weight: 800;
+    font-size: 13px;
+
+    color: var(--primary);
+
+    pointer-events: none;
+}
+
+.spin-controls {
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 0 20px 25px;
+}
+
+.spin-btn {
+    width: 180px;
+    height: 55px;
+
+    border: 0;
+    border-radius: 14px;
+
+    background: var(--primary);
+    color: white;
+
+    font-weight: 800;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    transition:
+        transform 0.2s,
+        background 0.2s;
+}
+
+.spin-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.spin-btn:active {
+    transform: scale(0.97);
+}
+
+.spin-status {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.winner-display {
+    margin: 0 22px 22px;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border-radius: 14px;
+
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+}
+
+.winner-icon {
+    font-size: 32px;
+}
+
+.winner-display > div:nth-child(2) {
+    flex: 1;
+}
+
+.winner-display > div:nth-child(2) span {
+    display: block;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.winner-display strong {
+    font-size: 20px;
+}
+
+.winner-actions {
+    gap: 8px;
+}
+
+.items-container {
+    padding: 15px 22px;
+}
+
+.wheel-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.wheel-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.98);
+}
+
+.drag-handle {
+    cursor: grab;
+
+    color: var(--muted);
+    font-size: 20px;
+}
+
+.item-icon-wrapper {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+}
+
+.item-icon {
+    font-size: 22px;
+}
+
+.item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-name {
+    width: 100%;
+
+    border: 0;
+    background: transparent;
+
+    padding: 4px 0;
+
+    color: var(--text);
+    font-weight: 600;
+}
+
+.item-options {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 8px;
+}
+
+.item-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.item-color {
+    width: 28px;
+    height: 24px;
+
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.item-weight {
+    width: 65px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    padding: 4px 6px;
+}
+
+.remove-item-btn {
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #fee2e2;
+    color: var(--danger);
+
+    font-size: 18px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.remove-item-btn:hover {
+    background: var(--danger);
+    color: white;
+}

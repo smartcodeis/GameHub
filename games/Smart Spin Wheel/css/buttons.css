@@ -1,0 +1,55 @@
+button {
+    border: 1px solid var(--border);
+
+    background: white;
+    color: var(--text);
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    transition:
+        background 0.2s,
+        transform 0.2s,
+        border-color 0.2s;
+}
+
+button:hover {
+    background: var(--surface-2);
+}
+
+.primary-btn {
+    background: var(--primary);
+    border-color: var(--primary);
+
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.danger-btn {
+    background: var(--danger);
+    border-color: var(--danger);
+
+    color: white;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 9px;
+}
+
+.wheel-actions button {
+    font-size: 12px;
+}

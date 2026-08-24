@@ -1,0 +1,116 @@
+@media (max-width: 1200px) {
+
+    #app {
+        grid-template-columns: 230px minmax(0, 1fr);
+    }
+
+    #rightSidebar {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    #app {
+        display: block;
+    }
+
+    #sidebar {
+        position: fixed;
+
+        left: -280px;
+        top: 0;
+
+        width: 260px;
+        height: 100vh;
+
+        z-index: 100;
+
+        transition: left 0.3s ease;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    #topbar {
+        padding: 0 15px;
+    }
+
+    #mobileMenuBtn {
+        display: inline-flex;
+    }
+
+    #workspace {
+        padding: 15px;
+    }
+
+    .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .wheel-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .wheel-title-area {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    #topbar {
+        height: auto;
+
+        padding: 15px;
+
+        gap: 12px;
+    }
+
+    .topbar-actions {
+        display: none;
+    }
+
+    .wheel-stage {
+        padding: 20px 10px;
+    }
+
+    .wheel-container {
+        width: 90vw;
+    }
+
+    .wheel-center {
+        width: 60px;
+        height: 60px;
+
+        font-size: 10px;
+    }
+
+    .winner-display {
+        flex-wrap: wrap;
+    }
+
+    .winner-actions {
+        width: 100%;
+    }
+
+    .winner-actions button {
+        flex: 1;
+    }
+
+    .item-options {
+        flex-wrap: wrap;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
