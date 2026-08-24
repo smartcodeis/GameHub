@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Random Card (Guess Who)</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="../../index.html"
+        style="position: fixed; top: 15px; left: 15px; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.8)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.transform='scale(1)';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+
+    <main class="app">
+
+        <header class="header">
+            <div>
+                <span class="eyebrow">FUN HUB</span>
+                <h1>Random Card <span class="header-tag">(Guess Who)</span></h1>
+                <p>اسحب كارت تلميحات عشوائي وخمن مين الشخصية.</p>
+            </div>
+
+            <div class="counter">
+                <span id="cardCount">0</span>
+                <small>الشخصيات</small>
+            </div>
+        </header>
+
+        <div class="score-bar">
+            <div class="score-item score-correct">
+                <span class="score-num" id="scoreCorrect">0</span>
+                <span class="score-label">✓ صح</span>
+            </div>
+            <div class="score-divider"></div>
+            <div class="score-item score-wrong">
+                <span class="score-num" id="scoreWrong">0</span>
+                <span class="score-label">✗ غلط</span>
+            </div>
+            <div class="score-divider"></div>
+            <div class="score-item score-skipped">
+                <span class="score-num" id="scoreSkipped">0</span>
+                <span class="score-label">↷ Skip</span>
+            </div>
+        </div>
+
+
+        <section class="game">
+
+            <div class="card-area">
+
+                <div class="card" id="card">
+
+                    <div class="card-top">
+                        <span>GUESS WHO</span>
+
+                        <div class="card-top-actions">
+                            <span class="card-number" id="cardNumber">#</span>
+                            <button class="card-next-btn" id="cardNextBtn" title="كارت جديد">&#8594;</button>
+                        </div>
+                    </div>
+
+                    <div class="question-wrapper">
+
+                        <div class="question-icon">
+                            ?
+                        </div>
+
+                        <div class="clues-container">
+                            <p id="question" class="start-prompt">
+                                اضغط على الزر بالأسفل لسحب كارت جديد وبدء اللعبة.
+                            </p>
+                            <ul class="clues-list" id="cluesList"></ul>
+                        </div>
+
+                        <div class="controls-container" id="controlsContainer" style="display: none;">
+                            <button class="clue-btn" id="clueBtn">💡 تلميح جديد (Clue)</button>
+                            <button class="show-answer-btn" id="showAnswerBtn">🔓 عرض الإجابة (Answer)</button>
+                        </div>
+
+                        <div class="guess-area" id="guessArea" style="display: none;">
+                            <div class="guess-input-row">
+                                <input type="text" id="guessInput" class="guess-input"
+                                    placeholder="اكتب اسم الشخصية هنا..." autocomplete="off" spellcheck="false" />
+                                <button class="guess-submit-btn" id="guessSubmitBtn">تخمين ↵</button>
+                            </div>
+                            <div class="guess-verdict" id="guessVerdict" style="display: none;">
+                                <div class="verdict-message" id="verdictMessage"></div>
+                                <div class="verdict-actions" id="verdictActions">
+                                    <button class="verdict-btn correct-btn" id="markCorrectBtn">✓ صح</button>
+                                    <button class="verdict-btn wrong-btn" id="markWrongBtn">✗ غلط</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="answer-content-area" id="answerContentArea" style="display: none;">
+                            <span class="answer-label">الشخصية (Answer)</span>
+                            <p class="answer-text" id="answerText"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="card-bottom">
+                        <span>RANDOM CARD (GUESS WHO)</span>
+                    </div>
+
+                </div>
+
+                <div class="clues-indicator" id="cluesIndicator" style="display: none;">
+                    تلميحات: <span id="revealedCount">0</span> / <span id="totalCount">0</span>
+                </div>
+
+            </div>
+
+
+            <button class="draw-btn" id="drawBtn">
+                <span class="draw-icon">↻</span>
+                سحب كارت (Draw Card)
+            </button>
+
+        </section>
+
+
+        <section class="history-section">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">السابق</span>
+                    <h2>تاريخ السحب (History)</h2>
+                </div>
+
+                <button class="clear-btn" id="clearHistory">
+                    مسح (Clear)
+                </button>
+            </div>
+
+
+            <div class="history" id="history">
+
+                <div class="empty-history" id="emptyHistory">
+                    <div class="empty-icon">◷</div>
+                    <p>لم يتم سحب أي كارت بعد</p>
+                    <span>الشخصيات التي قمت بسحبها ستظهر هنا.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
