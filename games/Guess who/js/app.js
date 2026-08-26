@@ -217,6 +217,9 @@ function drawCard() {
     renderRevealedClues();
     playCardAnimation();
     updateDrawButtonState();
+
+    // Scroll the card into view smoothly
+    cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 
